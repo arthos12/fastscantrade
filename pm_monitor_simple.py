@@ -48,7 +48,8 @@ while 1:
             
             if remain <= 0: continue
             
-            now = datetime.now().strftime("%H:%M:%S")
+            # 使用ET (东部时间) - Polymarket时区
+            now = datetime.now(timezone(timedelta(hours=-4))).strftime("%H:%M:%S")
             
             if remain <= 20:
                 print(f"📊 {now} | {c.upper()} | Up={up:.2f} Down={down:.2f} | 剩{remain}秒", flush=True)
